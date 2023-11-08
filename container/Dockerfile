@@ -8,4 +8,6 @@ RUN pip install --no-cache-dir --upgrade .
 
 COPY ./inference /code/inference
 
+EXPOSE 8080
+
 CMD ["uvicorn", "inference.main:app", "--host", "0.0.0.0", "--port", "8080"]

@@ -27,4 +27,11 @@ make push
 
 ### Test The Application
 
+To test the application call the following make targets in subsequent order:
+```shell
+make format
+make lint
+make test
+```
+
 Once the development Lambda function is updated with the new Docker image you can test the function form the AWS console.
