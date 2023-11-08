@@ -9,6 +9,11 @@ This repository deploys an ML Models as Docker Container.
 
 ## Quickstart
 
+To get the application up and running, run the make target: 
+```shell
+make compose 
+```
+
 ### Local Environment
 
 Initialize Python environment running the make target
@@ -50,4 +55,4 @@ make test
 ```
 Once all the tests succeed you can run the application both in your local environment or in Docker and test with:
 * Swagger: visit the URL http://127.0.0.1:8080/docs
-* Postman: find [postman collection](https://github.com/jackma-00/sep-project/blob/main/SEP%20project.postman_collection.json)
+* Postman: find [postman collection](https://github.com/jackma-00/ml-inference/blob/main/container/ML%20Inference.postman_collection.json)

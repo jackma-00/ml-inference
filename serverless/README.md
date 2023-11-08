@@ -1,49 +1,30 @@
 # Deploying ML Models as Serverless Functions
 
-This repository contains the backend of the SEP project. 
+This repository deploys an ML Models as Serverless Functions. 
 
 ## Requirements
 
 * Docker engine ([Installation](https://docs.docker.com/engine/install/))
 * Python3.10.12 with `pip`
+* AWS CLI v2 ([User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html))
+* Amazon ECR credential helper ([Installation](https://github.com/awslabs/amazon-ecr-credential-helper))
 
 ## Quickstart
 
-### Local Environment
+Set up your AWS console initializing:
+* an ECR repository named `ml-inference-images-repo`
+* Lambda function where to deploy the container image
 
-Initialize Python environment running the make target
-
-```shell
-make venv
-. .venv/bin/activate
-```
-
-Install now the Python project's dependencies running the make target
-```shell
-make install
-```
-
-To run the application in your local environment call the make target
-```shell
-make local_launch
-```
+Get valid AWS credential to push the Docker image to ECR. 
 
 ### Docker
 
-To run the application with Docker call the following make targets in subsequent order:
+To build the application and push it to ECR call the following make targets in subsequent order:
 ```shell
 make build
-make run 
+make push
 ```
 
 ### Test The Application
 
-To test the application call the following make targets in subsequent order:
-```shell
-make format
-make lint
-make test
-```
-Once all the tests succeed you can run the application both in your local environment or in Docker and test with:
-* Swagger: visit the URL http://127.0.0.1:8080/docs
-* Postman: find [postman collection](https://github.com/jackma-00/sep-project/blob/main/SEP%20project.postman_collection.json)
+Once the development Lambda function is updated with the new Docker image you can test the function form the AWS console.
